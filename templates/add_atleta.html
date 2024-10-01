@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Atleta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Adicionar Novo Atleta</h1>
+        <form method="post">
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome" required><br><br>
+
+            <label for="idade">Idade:</label><br>
+            <input type="number" id="idade" name="idade" required><br><br>
+
+            <label for="sub">Sub:</label><br>
+            <input type="text" id="sub" name="sub" required><br><br>
+
+            <label for="nome_responsavel">Nome do Responsável:</label><br>
+            <input type="text" id="nome_responsavel" name="nome_responsavel" required><br><br>
+
+            <label for="posicao">Posição:</label><br>
+            <input type="text" id="posicao" name="posicao"><br><br>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+        <br>
+        <a href="{{ url_for('index') }}" class="btn">Voltar à lista de atletas</a>
+    </div>
+</body>
+</html>

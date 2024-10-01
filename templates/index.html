@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Atletas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Atletas</h1>
+        <ul>
+            {% for atleta in atletas %}
+            <li>
+                {{ atleta.nome }} - Sub: {{ atleta.sub }}
+                <a href="{{ url_for('atleta_detail', id=atleta.id) }}">Ver Detalhes</a>
+            </li>
+            {% else %}
+            <li>Nenhum atleta cadastrado.</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('add_atleta_form') }}" class="btn">Adicionar Novo Atleta</a>
+    </div>
+</body>
+</html>

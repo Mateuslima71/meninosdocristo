@@ -1,0 +1,134 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "API para o Cadastro de Atletas",
+      "version": "1.0.0",
+      "title": "Cadastro de Atletas"
+    },
+    "host": "localhost:5000",
+    "basePath": "/",
+    "paths": {
+      "/atletas": {
+        "post": {
+          "tags": ["Atletas"],
+          "summary": "Adicionar um novo atleta",
+          "parameters": [
+            {
+              "name": "atleta",
+              "in": "body",
+              "description": "Dados do novo atleta",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Atleta"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Atleta criado com sucesso"
+            }
+          }
+        },
+        "get": {
+          "tags": ["Atletas"],
+          "summary": "Obter todos os atletas",
+          "responses": {
+            "200": {
+              "description": "Lista de atletas"
+            }
+          }
+        }
+      },
+      "/atletas/{id}": {
+        "get": {
+          "tags": ["Atletas"],
+          "summary": "Obter atleta por ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "ID do atleta"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Atleta encontrado"
+            },
+            "404": {
+              "description": "Atleta não encontrado"
+            }
+          }
+        },
+        "put": {
+          "tags": ["Atletas"],
+          "summary": "Atualizar atleta por ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "ID do atleta"
+            },
+            {
+              "name": "atleta",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Atleta"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Atleta atualizado"
+            }
+          }
+        },
+        "delete": {
+          "tags": ["Atletas"],
+          "summary": "Deletar atleta por ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "description": "ID do atleta"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Atleta deletado"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Atleta": {
+        "type": "object",
+        "required": ["nome", "idade", "sub", "nome_responsavel"],
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "idade": {
+            "type": "integer"
+          },
+          "sub": {
+            "type": "string"
+          },
+          "nome_responsavel": {
+            "type": "string"
+          },
+          "posicao": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+  

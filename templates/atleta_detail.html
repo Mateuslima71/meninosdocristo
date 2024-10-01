@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Atleta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalhes do Atleta</h1>
+        <table class="table table-bordered">
+            <tr>
+                <th>Nome</th>
+                <td>{{ atleta.nome }}</td>
+            </tr>
+            <tr>
+                <th>Idade</th>
+                <td>{{ atleta.idade }}</td>
+            </tr>
+            <tr>
+                <th>Sub</th>
+                <td>{{ atleta.sub }}</td>
+            </tr>
+            <tr>
+                <th>Nome do Responsável</th>
+                <td>{{ atleta.nome_responsavel }}</td>
+            </tr>
+            <tr>
+                <th>Posição</th>
+                <td>{{ atleta.posicao }}</td>
+            </tr>
+            <tr>
+                <th>Data de Registro</th>
+                <td>{{ atleta.data_registro.strftime('%d/%m/%Y') }}</td>
+            </tr>
+        </table>
+        <a href="{{ url_for('index') }}" class="btn">Voltar à lista de atletas</a>
+    </div>
+</body>
+</html>
